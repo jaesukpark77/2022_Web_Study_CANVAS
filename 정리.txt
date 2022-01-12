@@ -1,0 +1,11 @@
+대상.명령() -> 메소드
+명령() -> 함수
+명령 -> 변수
+
+대상.명령 -> 속성
+
+대상.명령 -> 취득
+대상.명령 = 값 -> 적용
+const canvas1 = document.getElementById('canvas1);
+canvas1.width -> 가로 값 취득
+canvas1.width = 400; -> 적용

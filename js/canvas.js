@@ -54,5 +54,36 @@ gra2.addColorStop(0, '#FDD5C0');
 gra2.addColorStop(0.6, '#F46161');
 gra2.addColorStop(1, '#FFCF62');
 
-ctx7.fillStyle = gra2;
+ctx7.fillStyle = gra2; 
 ctx7.fillRect(0,0,canvas7.width,canvas7.height);
+ctx7.strokeStyle = gra1;
+ctx7.shadowColor = 'yellow'; ctx7.shadowBlur = 10;
+ctx7.strokeRect(150,100,300,200);
+
+const canvas8 = document.getElementById('canvas8');
+const ctx8 = canvas8.getContext('2d');
+const gra3 = ctx8.createRadialGradient(200,150,5,300,200,300);
+gra3.addColorStop(0, '#FDD5C0');
+gra3.addColorStop(0.8, '#F46161');
+gra3.addColorStop(1, '#FFCF62');
+
+ctx8.globalAlpha = .5;
+ctx8.fillStyle = gra3;
+ctx8.fillRect(0,0,canvas8.width,canvas8.height);
+
+const canvas9 = document.getElementById('canvas9');
+const ctx9 = canvas9.getContext('2d');
+const patImg1 = document.getElementById('pat1');
+const myPat1 = ctx9.createPattern(patImg1, 'repeat');
+ctx9.fillStyle = myPat1;
+ctx9.fillRect(150,100,300,200);
+
+const canvas10 = document.getElementById('canvas10');
+const ctx10 = canvas10.getContext('2d');
+const myImg1 = new Image();
+myImg1.src = 'img/pattern2.png';
+myImg1.onload = function(){
+    const myPat2 = ctx10.createPattern(myImg1, 'repeat');
+    ctx10.fillStyle = myPat2;
+    ctx10.fillRect(0,0,canvas10.width,canvas10.height);
+}

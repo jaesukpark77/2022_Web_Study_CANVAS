@@ -5,3 +5,5 @@ canvas{
     box-shadow:0 0 5px #bbb;
     background:url(../img/grid.gif);
 }
+
+#pat1 {display:none;}

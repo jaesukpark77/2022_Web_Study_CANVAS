@@ -120,16 +120,20 @@ ctx12.lineWidth=10;ctx12.strokeStyle='coral';
 ctx12.beginPath();
 ctx12.lineCap = 'butt';
 ctx12.moveTo(50,100);ctx12.lineTo(550,100);
+ctx12.setLineDash([20]);
 ctx12.stroke();
 
 ctx12.beginPath();
 ctx12.lineCap = 'round';
 ctx12.moveTo(50,200);ctx12.lineTo(550,200);
+ctx12.setLineDash([20,40]);
 ctx12.stroke();
 
 ctx12.beginPath();
 ctx12.lineCap = 'square';
 ctx12.moveTo(50,300);ctx12.lineTo(550,300);
+//ctx12.setLineDash([20,40,30,50]);
+ctx12.setLineDash([]); // 초기화 시킨다.
 ctx12.stroke();
 
 const canvas13 = document.getElementById('canvas13');
@@ -157,3 +161,53 @@ const ctx14 = canvas14.getContext('2d');
 ctx14.fillStyle = gra3;
 ctx14.fillRect(150,100,300,200);
 ctx14.clearRect(200,150,50,50);
+
+const canvas15 = document.getElementById('canvas15');
+const ctx15 = canvas15.getContext('2d');
+ctx15.beginPath();
+ctx15.rect(50,50,300,200);
+ctx15.fillStyle = gra1;
+ctx15.fill();
+
+ctx15.beginPath();
+ctx15.moveTo(250,150);ctx15.lineTo(500,150);ctx15.lineTo(300,350);
+ctx15.fillStyle = gra2;
+ctx15.fill();
+
+const canvas16 = document.getElementById('canvas16');
+const ctx16 = canvas16.getContext('2d');
+ctx16.lineWidth=8;ctx16.lineCap='round';ctx16.lineJoin='round';
+ctx16.setLineDash([15]);
+
+ctx16.beginPath();
+ctx16.moveTo(50,50);ctx16.lineTo(50,350);ctx16.lineTo(250,350);
+ctx16.strokeStyle = 'coral';
+ctx16.stroke();
+
+ctx16.beginPath();
+ctx16.moveTo(350,50);ctx16.lineTo(350,350);ctx16.lineTo(550,350);
+ctx16.closePath();
+ctx16.strokeStyle = 'cornflowerblue';
+ctx16.stroke();
+
+const canvas17 = document.getElementById('canvas17');
+const ctx17 = canvas17.getContext('2d');
+
+ctx17.moveTo(300,50);ctx17.lineTo(50,350);ctx17.lineTo(550,350);
+ctx17.closePath();
+ctx17.stroke();
+ctx17.clip();
+
+ctx17.globalAlpha = .5;
+ctx17.fillStyle  = gra3;
+ctx17.fillRect(0,0,600,200);
+ctx17.fillStyle= myPat1;
+ctx17.fillRect(0,200,600,200);
+
+const canvas18 = document.getElementById('canvas18');
+const ctx18 = canvas18.getContext('2d');
+
+ctx18.moveTo(300,100);
+ctx18.moveTo(300,50); ctx18.lineTo(330,110); ctx18.lineTo(400,130); ctx18.lineTo(350,160); ctx18.lineTo(360,230); ctx18.lineTo(300,200); ctx18.lineTo(240,230); ctx18.lineTo(250,160); ctx18.lineTo(200,130); ctx18.lineTo(270,110);
+ctx18.closePath();
+ctx18.stroke();

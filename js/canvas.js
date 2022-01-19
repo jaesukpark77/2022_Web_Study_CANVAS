@@ -91,6 +91,12 @@ myImg1.onload = function(){
 const canvas11 = document.getElementById('canvas11');
 const ctx11 = canvas11.getContext('2d'); 
 const gra4 = ctx11.createLinearGradient(0,0,0,canvas11.height);
+gra4.addColorStop(0, '#B8D9C4');
+gra4.addColorStop(0.2, '#A4BFAE');
+gra4.addColorStop(0.5, '#97A69C');
+gra4.addColorStop(0.7, '#D2D9D4');
+gra4.addColorStop(1, '#F2F2F2');
+
 const myImg2 = new Image();
 myImg2.src = 'img/car.png';
 myImg2.onload = function(){
@@ -103,12 +109,6 @@ myImg2.onload = function(){
     ctx11.moveTo(200,240);ctx11.lineTo(200,330);ctx11.lineTo(270,330);ctx11.lineTo(270,240);
     ctx11.moveTo(330,240);ctx11.lineTo(330,330);ctx11.lineTo(410,330);ctx11.lineTo(410,240);
     
-    gra4.addColorStop(0, '#B8D9C4');
-    gra4.addColorStop(0.2, '#A4BFAE');
-    gra4.addColorStop(0.5, '#97A69C');
-    gra4.addColorStop(0.7, '#D2D9D4');
-    gra4.addColorStop(1, '#F2F2F2');
-
     ctx11.fillStyle = gra4;
     ctx11.fill();
 }
@@ -206,8 +206,73 @@ ctx17.fillRect(0,200,600,200);
 
 const canvas18 = document.getElementById('canvas18');
 const ctx18 = canvas18.getContext('2d');
+const gra5 = ctx18.createLinearGradient(0,0,0,200);
+gra5.addColorStop(0, '#A3A1A8');
+gra5.addColorStop(0.3, '#7D6B7D');
+gra5.addColorStop(0.5, '#FF665A');
+gra5.addColorStop(0.7, '#FF8C64');
+gra5.addColorStop(1, '#FFF587');
 
-ctx18.moveTo(300,100);
-ctx18.moveTo(300,50); ctx18.lineTo(330,110); ctx18.lineTo(400,130); ctx18.lineTo(350,160); ctx18.lineTo(360,230); ctx18.lineTo(300,200); ctx18.lineTo(240,230); ctx18.lineTo(250,160); ctx18.lineTo(200,130); ctx18.lineTo(270,110);
+const myImg18 = new Image();
+myImg18.src = 'img/pattern3.png';
+myImg18.onload = function(){
+    const myPat18 = ctx18.createPattern(myImg18, 'repeat');
+    ctx18.fillStyle = myPat18;
+    ctx18.fillRect(0,200,600,400);
+}
+
+ctx18.moveTo(300,100);ctx18.lineTo(270,170);ctx18.lineTo(200,180);ctx18.lineTo(260,215);ctx18.lineTo(235,290);ctx18.lineTo(300,240);
+ctx18.lineTo(365,290);ctx18.lineTo(340,215);ctx18.lineTo(400,180);ctx18.lineTo(330,170);
 ctx18.closePath();
 ctx18.stroke();
+ctx18.clip();
+
+ctx18.fillStyle  = gra5;
+ctx18.fillRect(0,0,600,200);
+
+const canvas19 = document.getElementById('canvas19');
+const ctx19 = canvas19.getContext('2d');
+ctx19.beginPath();
+ctx19.moveTo(50,100);ctx19.lineTo(150,100);
+ctx19.quadraticCurveTo(350,350,450,100);ctx19.lineTo(550,100);
+ctx19.lineTo(550,350);ctx19.lineTo(50,350);
+ctx19.closePath();
+ctx19.lineWidth=5;ctx19.lineJoin='round';ctx19.lineCap='round';
+ctx19.setLineDash([10]);
+ctx19.strokeStyle = gra2;
+ctx19.stroke();
+
+const canvas20 = document.getElementById('canvas20');
+const ctx20 = canvas20.getContext('2d');
+ctx20.beginPath();
+ctx20.moveTo(50,100);
+ctx20.bezierCurveTo(50,450,550,450,550,100);
+ctx20.bezierCurveTo(550,250,50,250,50,100);
+ctx20.fillStyle = gra2;
+ctx20.fill();
+
+const canvas21 = document.getElementById('canvas21');
+const ctx21 = canvas21.getContext('2d');
+
+const canvas22 = document.getElementById('canvas22');
+const ctx22 = canvas22.getContext('2d');
+ctx22.beginPath();
+ctx22.arc(300,200,100,0,Math.PI*1.5);
+ctx22.stroke();
+
+const canvas23 = document.getElementById('canvas23');
+const ctx23 = canvas23.getContext('2d');
+ctx23.beginPath();
+ctx23.moveTo(300,200);
+ctx23.arc(300,200,100,0,Math.PI*1.5,true);
+ctx23.closePath();
+ctx23.stroke();
+
+const canvas24 = document.getElementById('canvas24');
+const ctx24 = canvas24.getContext('2d');
+ctx24.beginPath();
+ctx24.arc(300,200,100,0,Math.PI*2);
+ctx24.moveTo(370,200);ctx24.arc(300,200,70,0,Math.PI);
+ctx24.moveTo(270,180);ctx24.arc(250,180,20,0,Math.PI,true);
+ctx24.moveTo(370,180);ctx24.arc(350,180,20,0,Math.PI,true);
+ctx24.stroke();

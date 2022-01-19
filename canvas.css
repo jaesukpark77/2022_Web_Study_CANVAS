@@ -1,9 +1,0 @@
-@charset "utf-8";
-body{text-align:center}
-section{display:inline-block;margin:50px;}
-canvas{
-    box-shadow:0 0 5px #bbb;
-    background:url(../img/grid.gif);
-}
-
-#pat1 {display:none;}

@@ -253,6 +253,43 @@ ctx20.fill();
 
 const canvas21 = document.getElementById('canvas21');
 const ctx21 = canvas21.getContext('2d');
+const gra21 = ctx21.createLinearGradient(0,0,canvas21.width,canvas21.height);
+gra21.addColorStop(0,'#850037');
+gra21.addColorStop(0.2,'#FF1979');
+gra21.addColorStop(0.4,'#D10056');
+gra21.addColorStop(0.8,'#008506');
+gra21.addColorStop(1,'#00D10A');
+
+const myImg21 = new Image();
+myImg21.src = 'img/love_white.png';
+myImg21.onload = function(){
+    const myPat21 = ctx21.createPattern(myImg21, 'repeat');
+    ctx21.fillStyle = myPat21;
+    ctx21.fillRect(0,0,600,400);
+}
+
+
+ctx21.beginPath();
+ctx21.moveTo(0,100);
+ctx21.bezierCurveTo(0,50,100,50,100,100);
+ctx21.bezierCurveTo(100,150,200,150,200,100);
+ctx21.bezierCurveTo(200,50,300,50,300,100);
+ctx21.bezierCurveTo(300,150,400,150,400,100);
+ctx21.bezierCurveTo(400,50,500,50,500,100);
+ctx21.bezierCurveTo(500,150,600,150,600,100);
+ctx21.lineTo(600,300);
+ctx21.bezierCurveTo(600,250,500,250,500,300);
+ctx21.bezierCurveTo(500,350,400,350,400,300);
+ctx21.bezierCurveTo(400,250,300,250,300,300);
+ctx21.bezierCurveTo(300,350,200,350,200,300);
+ctx21.bezierCurveTo(200,250,100,250,100,300);
+ctx21.bezierCurveTo(100,350,0,350,0,300);
+ctx21.closePath();
+ctx21.clip();
+
+ctx21.fillStyle = gra21;
+ctx21.fillRect(0,0,600,400);
+
 
 const canvas22 = document.getElementById('canvas22');
 const ctx22 = canvas22.getContext('2d');
@@ -275,4 +312,90 @@ ctx24.arc(300,200,100,0,Math.PI*2);
 ctx24.moveTo(370,200);ctx24.arc(300,200,70,0,Math.PI);
 ctx24.moveTo(270,180);ctx24.arc(250,180,20,0,Math.PI,true);
 ctx24.moveTo(370,180);ctx24.arc(350,180,20,0,Math.PI,true);
+ctx24.moveTo(200,200);
+ctx24.bezierCurveTo(170,200,170,250,190,250);
+ctx24.bezierCurveTo(220,250,220,300,180,300);
+
+ctx24.moveTo(400,200);
+ctx24.bezierCurveTo(430,200,430,250,410,250);
+ctx24.bezierCurveTo(380,250,380,300,420,300);
+ctx24.moveTo(230,130);ctx24.lineTo(200,100)
+ctx24.moveTo(260,110);ctx24.lineTo(240,70);
+ctx24.moveTo(300,100);ctx24.lineTo(300,50);
+ctx24.moveTo(340,110);ctx24.lineTo(360,70);
+ctx24.moveTo(370,130);ctx24.lineTo(400,100);
+
+ctx24.moveTo(230,170);ctx24.lineTo(220,160);
+ctx24.moveTo(250,160);ctx24.lineTo(250,145);
+ctx24.moveTo(270,170);ctx24.lineTo(280,160);
+ctx24.moveTo(330,170);ctx24.lineTo(320,160);
+ctx24.moveTo(350,160);ctx24.lineTo(350,145);
+ctx24.moveTo(370,170);ctx24.lineTo(380,160);
+ctx24.lineWidth=8 ;ctx24.lineCap='round';
+ctx24.strokeStyle=gra3;
 ctx24.stroke();
+
+const canvas25 = document.getElementById('canvas25');
+const ctx25 = canvas25.getContext('2d');
+ctx25.beginPath();
+ctx25.moveTo(150,100);
+ctx25.lineTo(450,100);ctx25.arcTo(500,100,500,150,50);
+ctx25.lineTo(500,250);ctx25.arcTo(500,300,450,300,50);
+ctx25.lineTo(150,300);ctx25.arcTo(100,300,100,250,50);
+ctx25.lineTo(100,150);ctx25.arcTo(100,100,150,100,50);
+ctx25.lineWidth=50;ctx25.strokeStyle=gra21;
+ctx25.stroke();
+
+const canvas26 = document.getElementById('canvas26');
+const ctx26 = canvas26.getContext('2d');
+ctx26.rect(100,100,400,200);
+ctx26.strokeStyle = gra2;ctx26.lineWidth=50;ctx26.lineJoin='round';
+if(ctx26.isPointInPath(150,150)){
+    ctx26.stroke();
+}
+
+const canvas27 = document.getElementById('canvas27');
+const ctx27 = canvas27.getContext('2d');
+const w27 = canvas27.width;
+const h27 = canvas27.height;
+
+ctx27.fillStyle='#153B40';ctx27.fillRect(0,0,w27/2,h27/2);
+ctx27.fillStyle='#1E5359';ctx27.fillRect(w27/2,0,w27/2,h27/2);
+ctx27.fillStyle='#77A1A6';ctx27.fillRect(0,h27/2,w27/2,h27/2);
+ctx27.fillStyle='#8C4E03';ctx27.fillRect(w27/2,h27/2,w27/2,h27/2);
+
+ctx27.fillStyle='#fff';ctx27.globalAlpha=0.2;
+for(let i=1;i<7;i++){
+    ctx27.beginPath();
+    ctx27.arc(w27/2,h27/2,30*i,0,Math.PI*2);
+    ctx27.fill();
+}
+
+const canvas28 = document.getElementById('canvas28');
+const ctx28 = canvas28.getContext('2d');
+
+ctx28.lineCap='round';ctx28.strokeStyle=gra3;
+for(let i=0;i<10;i++){
+    ctx28.lineWidth=2+i;ctx28.setLineDash([i*6]);
+    ctx28.beginPath();
+    ctx28.moveTo(100+i*50,50);
+    ctx28.lineTo(50+i*50,350);
+    ctx28.stroke();
+}
+
+const canvas29 = document.getElementById('canvas29');
+const ctx29 = canvas29.getContext('2d');
+const w29 = canvas29.width;
+const h29 = canvas29.height;
+
+ctx29.fillStyle='#657362';ctx29.fillRect(0,0,w29/2,h29/2);
+ctx29.fillStyle='#F2B56B';ctx29.fillRect(w29/2,0,w29/2,h29/2);
+ctx29.fillStyle='#593E25';ctx29.fillRect(0,h29/2,w29/2,h29/2);
+ctx29.fillStyle='#8C6746';ctx29.fillRect(w29/2,h29/2,w29/2,h29/2);
+
+ctx29.fillStyle='#fff';ctx29.globalAlpha=0.2;
+for(let i=0;i<5;i++){
+    ctx29.beginPath();
+    ctx29.rect(250-(50*i),150-(50*i),100*(i+1),100*(i+1));
+    ctx29.fill();
+}

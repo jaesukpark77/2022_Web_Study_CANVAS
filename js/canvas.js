@@ -399,3 +399,60 @@ for(let i=0;i<5;i++){
     ctx29.rect(250-(50*i),150-(50*i),100*(i+1),100*(i+1));
     ctx29.fill();
 }
+
+const canvas30 = document.getElementById('canvas30');
+const ctx30 = canvas30.getContext('2d');
+
+ctx30.strokeRect(50,50,100,100);
+ctx30.scale(2,2);
+ctx30.strokeStyle='red';ctx30.strokeRect(50,50,100,100);
+ctx30.strokeStyle='green';ctx30.strokeRect(100,100,100,100);
+ctx30.scale(0.5,0.5);
+ctx30.strokeStyle='blue';ctx30.strokeRect(50,500,100,100);
+
+const canvas31 = document.getElementById('canvas31');
+const ctx31 = canvas31.getContext('2d');
+ctx31.rotate((Math.PI/180)*45);
+ctx31.fillStyle = 'rgba(0,0,0,.5)';
+ctx31.fillRect(250,150,100,100);
+
+const canvas32 = document.getElementById('canvas32');
+const ctx32 = canvas32.getContext('2d');
+
+ctx32.globalAlpha = .5;
+ctx32.fillRect(0,0,100,50);
+
+ctx32.translate(100,100);
+ctx32.fillStyle='coral';ctx32.fillRect(0,0,100,50);
+ctx32.translate(-100,-100);
+ctx32.fillStyle='cornflowerblue';ctx32.fillRect(100,50,100,50);
+
+const canvas33 = document.getElementById('canvas33');
+const ctx33 = canvas33.getContext('2d');
+
+ctx33.fillStyle='cornflowerblue';ctx33.fillRect(150,50,300,300);
+ctx33.save();
+
+ctx33.fillStyle='coral';ctx33.fillRect(200,100,200,200);
+ctx33.save();
+
+ctx33.fillStyle='bisque';ctx33.fillRect(250,150,100,100);
+
+ctx33.restore();ctx33.fillRect(275,175,50,50);
+ctx33.restore();ctx33.fillRect(290,190,20,20);
+
+const canvas34 = document.getElementById('canvas34');
+const ctx34 = canvas34.getContext('2d');
+ctx34.globalAlpha = .5;
+
+ctx34.save();
+ctx34.fillStyle='cornflowerblue';ctx34.fillRect(150,150,100,100);
+ctx34.rotate(25*(Math.PI/180));
+ctx34.fillStyle='coral';ctx34.fillRect(150,150,100,100);
+ctx34.restore();
+
+ctx34.fillStyle='cornflowerblue';ctx34.fillRect(350,150,100,100);
+ctx34.translate(400,200);
+ctx34.rotate(25*(Math.PI/180));
+ctx34.translate(-400,-200);
+ctx34.fillStyle='coral';ctx34.fillRect(350,150,100,100);

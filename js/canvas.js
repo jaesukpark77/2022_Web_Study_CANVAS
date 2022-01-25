@@ -505,6 +505,17 @@ for(let i=0;i<canvas35.height/50;i++){
 // 36.
 const canvas36 = document.getElementById('canvas36');
 const ctx36 = canvas36.getContext('2d');
+for(let i=0;i<canvas36.height/50;i++){
+    for(let j=0;j<canvas36.width/50;j++){
+        ctx36.save();
+        ctx36.beginPath();
+        ctx36.fillStyle = `rgb(255, ${30*j}, ${255-(30*i)})`;
+        ctx36.translate(j*50,i*50);
+        ctx36.arc(25,25,15,0,Math.PI*2);
+        ctx36.fill();
+        ctx36.restore();
+    }
+}
 
 // 37.
 const canvas37 = document.getElementById('canvas37');
@@ -576,5 +587,67 @@ const canvas41 = document.getElementById('canvas41');
 const ctx41 = canvas41.getContext('2d');
 const txt41 = 'Canvas';
 ctx41.textAlign='center';
-ctx41.font='100px Arial,sans-serif';
+ctx41.font='80px Arial,sans-serif';
 ctx41.fillText(txt41,canvas41.width/2,150);
+//ctx41.font='70px Arial,sans-serif';
+ctx41.fillText(`width : ${ctx41.measureText(txt41).width}`, canvas41.width/2,250);
+
+// 42.
+const canvas42 = document.getElementById('canvas42');
+const ctx42 = canvas42.getContext('2d');
+const gra42 = ctx42.createLinearGradient(0,0,canvas42.width,canvas42.height);
+const graColor = ['cornflowerblue','whitesmoke','gold','brown','lightblue','coral'];;
+gra42.addColorStop(0.2,graColor[0]);
+gra42.addColorStop(0.3,graColor[1]);
+gra42.addColorStop(0.4,graColor[2]);
+gra42.addColorStop(0.6,graColor[3]);
+gra42.addColorStop(0.7,graColor[4]);
+gra42.addColorStop(0.8,graColor[5]);
+
+const graBg = ctx42.createLinearGradient(canvas42.width,0,0,canvas42.height);
+const graBgColor = ['rgba(0,0,0,.5)', 'rgba(0,0,0,.7)']
+graBg.addColorStop(0,graBgColor[0]);
+graBg.addColorStop(.3,graBgColor[1]);
+graBg.addColorStop(.7,graBgColor[1]);
+graBg.addColorStop(1,graBgColor[0]);
+
+
+ctx42.fillStyle = graBg;
+ctx42.fillRect(0,0,canvas42.width,canvas42.height);
+
+ctx42.font = 'bold 6rem Arial,sans-serif';
+ctx42.textAlign='center';ctx1.textBaseline='middle';
+ctx42.strokeStyle = gra42;
+ctx42.strokeText('DeBruyne', canvas42.width/2,canvas42.height/2);
+
+// 43.
+const canvas43 = document.getElementById('canvas43');
+const ctx43 = canvas43.getContext('2d');
+const img1 = document.getElementById('smile1');
+ctx43.drawImage(img1,50,50);
+
+// 44.
+const canvas44 = document.getElementById('canvas44');
+const ctx44 = canvas44.getContext('2d');
+const img2 = new Image();
+const img3 = new Image();
+const img4 = new Image();
+img2.src='img/smile1.png';
+img3.src='img/smile2.png';
+img4.src='img/smile3.png';
+img4.onload = function(){
+    ctx44.drawImage(img2,100,50);
+    ctx44.drawImage(img3,250,150);
+    ctx44.drawImage(img4,400,250);
+}
+
+// 45.
+const canvas45 = document.getElementById('canvas45');
+const ctx45 = canvas45.getContext('2d');
+const img5 = new Image();
+img5.src = 'https://ssl.pstatic.net/tveta/libs/1371/1371025/4883850733f210c59815_20220119103334335.jpg'
+const img5w = img5.width;
+const img5h = img5.height;
+img5.onload= function(){
+    ctx45.drawImage(img5,(canvas45.width-img5w/3)/2,(canvas45.height-img5h/3)/2,img5w/3,img5h/3);
+}

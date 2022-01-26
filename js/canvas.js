@@ -571,16 +571,23 @@ ctx40.stroke();
 
 ctx40.font='bold 20px Arial,sans-serif';
 ctx40.textAlign='center';
-ctx40.textBaseline='top';
-ctx40.fillText('top',x40-50,y40);
-ctx40.textBaseline='bottom';
-ctx40.fillText('bottom',x40*2-50,y40);
-ctx40.textBaseline='middle';
-ctx40.fillText('middle',x40*3-50,y40);
-ctx40.textBaseline='alphabetic';
-ctx40.fillText('alphabetic',x40*4-50,y40);
-ctx40.textBaseline='hanging';
-ctx40.fillText('hanging',x40*5-50,y40);
+
+const baselineText = ['top','bottom','middle','alphabetic','hanging'];
+for(let i=0;i<baselineText.length;i++){
+    ctx40.textBaseline = baselineText[i];
+    ctx40.fillText(baselineText[i],x40*(i+1)-70,y40);
+}
+
+// ctx40.textBaseline='top';
+// ctx40.fillText('top',x40-50,y40);
+// ctx40.textBaseline='bottom';
+// ctx40.fillText('bottom',x40*2-50,y40);
+// ctx40.textBaseline='middle';
+// ctx40.fillText('middle',x40*3-50,y40);
+// ctx40.textBaseline='alphabetic';
+// ctx40.fillText('alphabetic',x40*4-50,y40);
+// ctx40.textBaseline='hanging';
+// ctx40.fillText('hanging',x40*5-50,y40);
 
 // 41.
 const canvas41 = document.getElementById('canvas41');
@@ -596,7 +603,7 @@ ctx41.fillText(`width : ${ctx41.measureText(txt41).width}`, canvas41.width/2,250
 const canvas42 = document.getElementById('canvas42');
 const ctx42 = canvas42.getContext('2d');
 const gra42 = ctx42.createLinearGradient(0,0,canvas42.width,canvas42.height);
-const graColor = ['cornflowerblue','whitesmoke','gold','brown','lightblue','coral'];;
+const graColor = ['#F25EB0','#B9BF04','#F2B705','#F27405','#F23005','#F25EB0'];
 gra42.addColorStop(0.2,graColor[0]);
 gra42.addColorStop(0.3,graColor[1]);
 gra42.addColorStop(0.4,graColor[2]);
@@ -605,10 +612,11 @@ gra42.addColorStop(0.7,graColor[4]);
 gra42.addColorStop(0.8,graColor[5]);
 
 const graBg = ctx42.createLinearGradient(canvas42.width,0,0,canvas42.height);
-const graBgColor = ['rgba(0,0,0,.5)', 'rgba(0,0,0,.7)']
+const graBgColor = ['#494846', '#636057','#858377']
 graBg.addColorStop(0,graBgColor[0]);
-graBg.addColorStop(.3,graBgColor[1]);
-graBg.addColorStop(.7,graBgColor[1]);
+graBg.addColorStop(.2,graBgColor[1]);
+graBg.addColorStop(.4,graBgColor[2]);
+graBg.addColorStop(.6,graBgColor[1]);
 graBg.addColorStop(1,graBgColor[0]);
 
 
@@ -616,9 +624,9 @@ ctx42.fillStyle = graBg;
 ctx42.fillRect(0,0,canvas42.width,canvas42.height);
 
 ctx42.font = 'bold 6rem Arial,sans-serif';
-ctx42.textAlign='center';ctx1.textBaseline='middle';
+ctx42.textAlign='center';ctx42.textBaseline='middle';
 ctx42.strokeStyle = gra42;
-ctx42.strokeText('DeBruyne', canvas42.width/2,canvas42.height/2);
+ctx42.strokeText('Messi', canvas42.width/2,canvas42.height/2);
 
 // 43.
 const canvas43 = document.getElementById('canvas43');
@@ -651,3 +659,61 @@ const img5h = img5.height;
 img5.onload= function(){
     ctx45.drawImage(img5,(canvas45.width-img5w/3)/2,(canvas45.height-img5h/3)/2,img5w/3,img5h/3);
 }
+
+// 46.
+const canvas46 = document.getElementById('canvas46');
+const ctx46 = canvas46.getContext('2d');
+const w46 = canvas46.width;
+const h46 = canvas46.height;
+const img6 = new Image();
+img6.src="img/flutter_dash.svg";
+const img6w = img6.width;
+const img6h = img6.height;
+img6.onload = function(){
+    ctx46.drawImage(img6,(w46-img6w*10)/2,(h46-img6h*10)/2,img6w*10,img6h*10);
+}
+
+// 47.
+const canvas47 = document.getElementById('canvas47');
+const ctx47 = canvas47.getContext('2d');
+const img7 = new Image();
+img7.src="img/royal-mile-ge3dbc2ed1_640.jpg"
+img7.onload = function(){
+    ctx47.drawImage(img7,400,200,200,200,200,100,190,190);
+}
+
+// 48.
+const canvas48 = document.getElementById('canvas48');
+const ctx48 = canvas48.getContext('2d');
+const imgData1 = ctx48.createImageData(100,100);
+
+imgData1.data[0] = 255;
+imgData1.data[1] = 0;
+imgData1.data[2] = 0;
+imgData1.data[3] = 255;
+
+imgData1.data[4] = 0;
+imgData1.data[5] = 0;
+imgData1.data[6] = 0;
+imgData1.data[7] = 255;
+
+imgData1.data[8] = 0;
+imgData1.data[9] = 255;
+imgData1.data[10] = 0;
+imgData1.data[11] = 255;
+
+ctx48.putImageData(imgData1,50,50);
+
+// 49.
+const canvas49 = document.getElementById('canvas49');
+const ctx49 = canvas49.getContext('2d');
+const imgData2 = ctx49.createImageData(100,100);
+
+for(let i=0;i<imgData2.data.length;i+=4){
+    imgData2.data[i+0] = 255;
+    imgData2.data[i+1] = 0;
+    imgData2.data[i+2] = 0;
+    imgData2.data[i+3] = 100;
+}
+
+ctx49.putImageData(imgData2,50,50);

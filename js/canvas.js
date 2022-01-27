@@ -717,3 +717,55 @@ for(let i=0;i<imgData2.data.length;i+=4){
 }
 
 ctx49.putImageData(imgData2,50,50);
+
+// 50.
+const canvas50 = document.getElementById('canvas50');
+const ctx50 = canvas50.getContext('2d');
+const imgData3 = ctx50.createImageData(400,300);
+// alert(`imgData 가로 값 : ${imgData3.width}`);
+
+for(let i=0;i<imgData3.data.length;i+=20){
+    imgData3.data[i+0] = 255;
+    imgData3.data[i+1] = 0;
+    imgData3.data[i+2] = 0;
+    imgData3.data[i+3] = 100;
+}
+
+ctx50.putImageData(imgData3,100,50);
+
+// 51.
+const canvas51 = document.getElementById('canvas51');
+const ctx51 = canvas51.getContext('2d');
+ctx51.fillStyle = 'rgba(255,0,0,.5)';
+ctx51.fillRect(200,50,200,100);
+
+const imgData4 = ctx51.getImageData(100,50,200,100);
+ctx51.putImageData(imgData4,100,200);
+
+// 52.
+const canvas52 = document.getElementById('canvas52');
+const ctx52 = canvas52.getContext('2d');
+const img8 = document.getElementById('structure');
+ctx52.drawImage(img8,0,0);
+
+const imgData5 = ctx52.getImageData(0,0,canvas52.width,canvas52.height);
+for(let i=0;i<imgData5.length;i+=4){
+    imgData5.data[i+0] = 255 - imgData5.data[i+0];
+    imgData5.data[i+1] = 255 - imgData5.data[i+1];
+    imgData5.data[i+2] = 255 - imgData5.data[i+2];
+    imgData5.data[i+3] = 255;
+}
+ctx52.putImageData(imgData5,0,0);
+
+// 53.
+const canvas53 = document.getElementById('canvas53');
+const ctx53 = canvas53.getContext('2d');
+
+ctx53.fillStyle = 'coral';
+ctx53.fillRect(0,50,200,200);
+
+ctx53.fillStyle = 'cornflowerblue';
+ctx53.fillRect(20,70,160,160);
+
+const imgData6 = ctx53.getImageData(0,50,200,200);
+ctx53.putImageData(imgData6,250,150,50,50,100,100);

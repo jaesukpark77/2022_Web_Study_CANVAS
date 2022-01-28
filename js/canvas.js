@@ -749,7 +749,7 @@ const img8 = document.getElementById('structure');
 ctx52.drawImage(img8,0,0);
 
 const imgData5 = ctx52.getImageData(0,0,canvas52.width,canvas52.height);
-for(let i=0;i<imgData5.length;i+=4){
+for(let i=0;i<imgData5.data.length;i+=4){
     imgData5.data[i+0] = 255 - imgData5.data[i+0];
     imgData5.data[i+1] = 255 - imgData5.data[i+1];
     imgData5.data[i+2] = 255 - imgData5.data[i+2];
@@ -769,3 +769,60 @@ ctx53.fillRect(20,70,160,160);
 
 const imgData6 = ctx53.getImageData(0,50,200,200);
 ctx53.putImageData(imgData6,250,150,50,50,100,100);
+
+// 54.
+const canvas54 = document.getElementById('canvas54');
+const ctx54 = canvas54.getContext('2d');
+const img9 = document.getElementById('dream');
+ctx54.drawImage(img9,0,0);
+
+ctx54.shadowColor = '#fff';
+ctx54.shadowBlur = 10;
+
+ctx54.font = 'bold 3rem Supermercado One,cursive';
+ctx54.strokeStyle = gra1;
+ctx54.strokeText('DREAM COME TRUE',20,380);
+
+// 55.
+const canvas55 = document.getElementById('canvas55');
+const ctx55 = canvas55.getContext('2d');
+
+const path1 = new Path2D();
+path1.rect(50,100,200,200);
+
+const path2 = new Path2D(path1);
+path2.moveTo(550,200);
+path2.arc(450,200,100,0,2*Math.PI);
+
+ctx55.fillStyle = gra2;
+ctx55.strokeStyle = 'rgba(255,255,255,.4)';ctx55.lineWidth = 20;
+ctx55.fill(path2);
+ctx55.stroke(path2);
+
+// 56.
+const canvas56 = document.getElementById('canvas56');
+const ctx56 = canvas56.getContext('2d');
+const path3 = new Path2D('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
+ctx56.fill(path3);
+
+// 57.
+const canvas57 = document.getElementById('canvas57');
+const ctx57 = canvas57.getContext('2d');
+let x57 = 0; let y57 = 0;
+ctx57.fillStyle = gra2;
+
+requestAnimationFrame(moveRect);
+
+function moveRect(){
+    ctx57.clearRect(0,0,canvas57.width,canvas57.height);
+    ctx57.fillRect(x57+80,y57,50+x57,50+x57);
+    x57++;y57++;
+    if(y57>=canvas57.height){
+        x57=0;y57=0;
+    }
+    requestAnimationFrame(moveRect);
+}
+
+// 58.
+const canvas58 = document.getElementById('canvas58');
+const ctx58 = canvas58.getContext('2d');

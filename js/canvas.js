@@ -826,3 +826,112 @@ function moveRect(){
 // 58.
 const canvas58 = document.getElementById('canvas58');
 const ctx58 = canvas58.getContext('2d');
+
+let r58 = 0; let x58 = 0; let y58=0;
+ctx58.fillStyle = gra21;ctx58.lineWidth = 5;ctx58.strokeStyle = gra42;
+
+requestAnimationFrame(moveArc);
+
+function moveArc(){
+    ctx58.clearRect(0,0,canvas58.width,canvas58.height);
+    ctx58.beginPath();
+    ctx58.arc(x58,y58,r58,0,Math.PI*2);
+    x58++;y58++;r58++;
+    ctx58.fill();
+    ctx58.stroke();
+
+    if(y58 >= canvas58.height){
+        x58=0;y58=0;r58=0; 
+    }
+    requestAnimationFrame(moveArc);
+}
+
+// 59.
+const canvas59 = document.getElementById('canvas59');
+const ctx59 = canvas59.getContext('2d');
+let d59 = 1; let s59 = 0;
+
+requestAnimationFrame(rotateRect);
+function rotateRect(){
+    ctx59.save();
+    ctx59.fillStyle= 'rgba(255,255,255,.1)';
+    ctx59.fillRect(0,0,canvas59.width,canvas59.height);
+    ctx59.fillStyle = gra21;
+    ctx59.translate(300,200);
+    ctx59.rotate((Math.PI/180)*d59);
+    ctx59.fillRect(-((100+s59)/2),-50,100+s59,100);
+    ctx59.restore();
+    d59++;s59++;
+    if(s59 >= 200){
+        s59 = 200;
+    }
+
+    requestAnimationFrame(rotateRect);
+}
+
+// 60.
+const canvas60 = document.getElementById('canvas60');
+const ctx60 = canvas60.getContext('2d');
+let num1=0;
+
+blur();
+
+function blur(){
+    ctx60.fillStyle = 'rgba(0,0,0,0.1)';
+    ctx60.fillRect(0,0,canvas60.width,canvas60.height);
+
+    ctx60.fillStyle = gra3;
+    ctx60.beginPath();
+    ctx60.arc(num1+100,num1,40,0,Math.PI*2);
+    ctx60.fill();
+
+    ctx60.beginPath();
+    ctx60.arc(num1+400,num1,30,0,Math.PI*2);
+    ctx60.fill();
+
+    ctx60.beginPath();
+    ctx60.arc(num1+50,num1+300,15,0,Math.PI*2);
+    ctx60.fill();
+
+    num1++;
+    if(num1 >= canvas60.height){
+        num1 = 0;
+    }
+    requestAnimationFrame(blur);
+}
+
+// 61.
+const canvas61 = document.getElementById('canvas61');
+const ctx61 = canvas61.getContext('2d');
+
+// 62.
+const canvas62 = document.getElementById('canvas62');
+const ctx62 = canvas62.getContext('webgl');
+ctx62.clearColor(1,0.3,0,.5);
+ctx62.clear(ctx62.COLOR_BUFFER_BIT);
+
+// Three
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 50, canvas62.width / canvas62.height, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( canvas62.width, canvas62.height );
+document.getElementById('three').appendChild( renderer.domElement );
+
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial( { color: 'coral' } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.05;
+    cube.rotation.y += 0.01;
+
+    renderer.render( scene, camera );
+};
+
+animate();

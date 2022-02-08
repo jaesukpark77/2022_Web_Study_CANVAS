@@ -7,3 +7,18 @@ canvas{
 }
 
 img {display:none;}
+
+#rip{
+    display:block;
+    height:80vh;
+    background:url(../img/moto-bikes-gca258ee33_1920.jpg) no-repeat center/cover;
+}
+
+#rip h2{
+    color:white;
+    line-height:80vh;
+    letter-spacing:1em;
+    text-transform:uppercase;
+    text-indent:1em;;
+    text-shadow:0 0 10px black;
+}

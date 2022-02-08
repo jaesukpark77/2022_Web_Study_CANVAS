@@ -901,8 +901,33 @@ function blur(){
 }
 
 // 61.
-const canvas61 = document.getElementById('canvas61');
-const ctx61 = canvas61.getContext('2d');
+const canvas61=document.getElementById('canvas61');
+const ctx61=canvas61.getContext('2d');
+
+let num61=0;
+
+function blur61(){
+    ctx61.fillStyle='rgba(0,0,0)';
+    ctx61.fillRect(0,0,canvas61.width,canvas61.height);
+
+    ctx61.fillStyle=gra42;
+    ctx61.shadowColor='#fff';
+    ctx61.shadowBlur = 30;
+
+    ctx61.fillRect(num61+10,num61,80,80);
+
+    ctx61.fillRect(num61+220,num61+120,40,40);
+
+    ctx61.fillRect(num61+350,num61+60,100,100);
+
+    num61++;
+    if(num61>=canvas60.height){
+        num61=0;
+    }
+
+    requestAnimationFrame(blur61);
+}
+blur61();
 
 // 62.
 const canvas62 = document.getElementById('canvas62');
@@ -935,3 +960,30 @@ function animate() {
 };
 
 animate();
+
+// 63. jCanvas
+$('#canvas63').drawArc({
+    fillStyle: 'cornflowerblue',
+    x: 150, y: 150,
+    radius: 100
+  }).drawArc({
+    fillStyle: 'coral',
+    x: 300, y: 200,
+    radius: 150
+  }).drawPolygon({
+    fillStyle: 'gold',
+    strokeStyle: 'black',
+    strokeWidth: 15,
+    x: 450, y: 250,
+    radius: 150,
+    sides: 3,
+    concavity: 0.5,
+    rotate: 90
+  });
+
+  // riples
+  $('#rip').ripples({
+	resolution: 512,
+	dropRadius: 20,
+	perturbance: 0.04,
+});

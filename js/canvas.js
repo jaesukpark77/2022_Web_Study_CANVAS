@@ -983,7 +983,7 @@ $('#canvas63').drawArc({
 
   // riples
   $('#rip').ripples({
-	resolution: 202,
-	dropRadius: 50,
+	resolution: 450,
+	dropRadius: 40,
 	perturbance: 0.5,
 });
